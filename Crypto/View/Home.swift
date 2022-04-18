@@ -33,6 +33,7 @@ struct Home: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             CustomControl()
+            Control()
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -71,6 +72,39 @@ struct Home: View {
                     .stroke(Color.white.opacity(0.2), lineWidth: 1)
             }
             .padding(.vertical)
+        }
+    }
+    
+    // MARK: Control Buttons
+    @ViewBuilder
+    func Control() -> some View {
+        HStack(spacing: 20) {
+            
+            Button {
+                
+            } label: {
+                Text("Sell")
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
+                    .padding(.vertical)
+                    .frame(maxWidth: .infinity)
+                    .background(Color("LightGreen"), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+            }
+            
+            Button {
+                
+            } label: {
+                Text("Buy")
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
+                    .padding(.vertical)
+                    .frame(maxWidth: .infinity)
+                    .background {
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(.white)
+                    }
+            }
+
         }
     }
 }
