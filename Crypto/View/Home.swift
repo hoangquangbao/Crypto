@@ -33,6 +33,7 @@ struct Home: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             CustomControl()
+            GraphView()
             Control()
         }
         .padding()
@@ -66,13 +67,25 @@ struct Home: View {
                             }
                         }
                 }
+                .background {
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                }
+                .padding(.vertical)
             }
-            .background {
-                RoundedRectangle(cornerRadius: 5, style: .continuous)
-                    .stroke(Color.white.opacity(0.2), lineWidth: 1)
-            }
-            .padding(.vertical)
+
         }
+    }
+    
+    // MARK: Line Graph
+    @ViewBuilder
+    func GraphView() -> some View {
+        GeometryReader { _ in
+            LineGraph(data: samplePlot)
+                .frame(height: 250)
+        }
+        .padding(.vertical, 30)
+        .padding(.bottom, 20)
     }
     
     // MARK: Control Buttons
@@ -104,7 +117,6 @@ struct Home: View {
                             .fill(.white)
                     }
             }
-
         }
     }
 }
@@ -114,3 +126,8 @@ struct Home_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+// Sample Plot For Graph....
+let samplePlot: [CGFloat] = [
+    1400,989,1200,456,666,220,1200,500,780,390,1500,800,1300
+]
