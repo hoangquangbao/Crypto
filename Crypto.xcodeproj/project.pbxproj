@@ -14,6 +14,7 @@
 		0609E015280CF95A002AAC5E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609E014280CF95A002AAC5E /* Home.swift */; };
 		0609E017280D6BCF002AAC5E /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609E016280D6BCF002AAC5E /* LineGraph.swift */; };
 		06BF98A1280EB933005CBEB8 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF98A0280EB933005CBEB8 /* CryptoModel.swift */; };
+		06BF98A4280EF803005CBEB8 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF98A3280EF803005CBEB8 /* CryptoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0609E014280CF95A002AAC5E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0609E016280D6BCF002AAC5E /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 		06BF98A0280EB933005CBEB8 /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
+		06BF98A3280EF803005CBEB8 /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				0609E012280CF92B002AAC5E /* Model */,
+				06BF98A2280EF7E3005CBEB8 /* ViewModel */,
 				0609E013280CF939002AAC5E /* View */,
 				0609E004280CF696002AAC5E /* CryptoApp.swift */,
 				0609E006280CF696002AAC5E /* ContentView.swift */,
@@ -90,6 +93,14 @@
 				0609E016280D6BCF002AAC5E /* LineGraph.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		06BF98A2280EF7E3005CBEB8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				06BF98A3280EF803005CBEB8 /* CryptoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 				0609E015280CF95A002AAC5E /* Home.swift in Sources */,
 				0609E005280CF696002AAC5E /* CryptoApp.swift in Sources */,
 				06BF98A1280EB933005CBEB8 /* CryptoModel.swift in Sources */,
+				06BF98A4280EF803005CBEB8 /* CryptoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -128,6 +128,6 @@ struct Home_Previews: PreviewProvider {
 }
 
 // Sample Plot For Graph....
-let samplePlot: [CGFloat] = [
+let samplePlot: [Double] = [
     1400,989,1200,456,666,220,1200,500,780,390,1500,800,1300
 ]

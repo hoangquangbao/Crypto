@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: Crypto Model For JSON Fetching
 
 // MARK: - WelcomeElement
-struct CoinModel: Identifiable {
+struct CryptoModel: Identifiable, Codable {
     let id: String
     let symbol: String
     let name: String
