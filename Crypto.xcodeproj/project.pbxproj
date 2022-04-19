@@ -15,6 +15,7 @@
 		0609E017280D6BCF002AAC5E /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609E016280D6BCF002AAC5E /* LineGraph.swift */; };
 		06BF98A1280EB933005CBEB8 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF98A0280EB933005CBEB8 /* CryptoModel.swift */; };
 		06BF98A4280EF803005CBEB8 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF98A3280EF803005CBEB8 /* CryptoViewModel.swift */; };
+		06BF98A7280F127E005CBEB8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 06BF98A6280F127E005CBEB8 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BF98A7280F127E005CBEB8 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +121,9 @@
 			dependencies = (
 			);
 			name = Crypto;
+			packageProductDependencies = (
+				06BF98A6280F127E005CBEB8 /* SDWebImageSwiftUI */,
+			);
 			productName = Crypto;
 			productReference = 0609E001280CF696002AAC5E /* Crypto.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 0609DFF8280CF696002AAC5E;
+			packageReferences = (
+				06BF98A5280F127E005CBEB8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 0609E002280CF696002AAC5E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -379,6 +387,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		06BF98A5280F127E005CBEB8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		06BF98A6280F127E005CBEB8 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06BF98A5280F127E005CBEB8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0609DFF9280CF696002AAC5E /* Project object */;
 }
