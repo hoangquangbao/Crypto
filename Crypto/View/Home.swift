@@ -9,32 +9,39 @@ import SwiftUI
 
 struct Home: View {
     
+    @StateObject var vm: CryptoViewModel = CryptoViewModel()
+
     @State var currentCoin: String = "BTC"
     @Namespace var animation
     
     var body: some View {
         VStack {
-            HStack(spacing: 10) {
-                
-                Circle()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.red)
-                
-                VStack(alignment: .leading, spacing: 5) {
+            if let coins = vm.coins, let coin = vm.currentCoin {
+                HStack(spacing: 10) {
                     
-                    Text("Bitcoin")
-                        .font(.callout)
+                    Circle()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.red)
                     
-                    Text("BTC")
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                    VStack(alignment: .leading, spacing: 5) {
+                        
+                        Text("Bitcoin")
+                            .font(.callout)
+                        
+                        Text("BTC")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
+                CustomControl()
+                GraphView(coin: coin)
+                Control()
+            } else {
+                ProgressView()
+                    .tint(Color("LightGreen"))
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            CustomControl()
-            GraphView()
-            Control()
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -79,10 +86,9 @@ struct Home: View {
     
     // MARK: Line Graph
     @ViewBuilder
-    func GraphView() -> some View {
+    func GraphView(coin: CryptoModel) -> some View {
         GeometryReader { _ in
-            LineGraph(data: samplePlot)
-                .frame(height: 250)
+            LineGraph(data: coin.last7DaysPrice.price)
         }
         .padding(.vertical, 30)
         .padding(.bottom, 20)
@@ -126,8 +132,3 @@ struct Home_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-// Sample Plot For Graph....
-let samplePlot: [Double] = [
-    1400,989,1200,456,666,220,1200,500,780,390,1500,800,1300
-]
