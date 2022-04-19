@@ -143,6 +143,21 @@ struct LineGraph: View {
                 withAnimation { showPlot = false }})
             )
         }
+        .overlay(
+            VStack(alignment: .leading) {
+                
+                let max = data.max() ?? 0
+                
+                Text("$ \(Int(max))")
+                    .font(.caption.bold())
+                
+                Spacer()
+                
+                Text("$ 0")
+                    .font(.caption.bold())
+            }
+                .frame(maxWidth: .infinity, alignment: .leading)
+        )
         .padding(.horizontal, 10)
     }
     
