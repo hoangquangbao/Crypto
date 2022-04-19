@@ -25,14 +25,18 @@ struct LineGraph: View {
             // Chiều rộng = kích thước ngang / (số phần tử - 1)
             let width = (proxy.size.width) / CGFloat(data.count - 1)
             
-            let maxPoint = (data.max() ?? 0) + 100
+            let maxPoint = data.max() ?? 0
+            let minPoint = data.min() ?? 0
             
             let points = data.enumerated().compactMap { item -> CGPoint in
                 
                 // getting progress and multiplyinh with height...
                 // ???
-                let progress = item.element / maxPoint
-                let pathHeight = progress * height
+                // Its showing from 0
+                // Making to show from minimum Amount
+                // Khoảng không để hiển thị biểu đồ bây giờ nó đc gói gọn giữa giá trị min và max
+                let progress = (item.element - minPoint) / (maxPoint - minPoint)
+                let pathHeight = progress * (height - 50)
                 
                 // width...
                 let pathWidth = width * CGFloat(item.offset)
@@ -144,16 +148,18 @@ struct LineGraph: View {
             )
         }
         .overlay(
+            // Show min/max values on Graph
             VStack(alignment: .leading) {
                 
                 let max = data.max() ?? 0
+                let min = data.min() ?? 0
                 
                 Text("$ \(Int(max))")
                     .font(.caption.bold())
                 
                 Spacer()
                 
-                Text("$ 0")
+                Text("$ \(Int(min))")
                     .font(.caption.bold())
             }
                 .frame(maxWidth: .infinity, alignment: .leading)
