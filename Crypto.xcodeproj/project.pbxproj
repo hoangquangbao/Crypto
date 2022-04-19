@@ -13,6 +13,7 @@
 		0609E00C280CF69A002AAC5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0609E00B280CF69A002AAC5E /* Preview Assets.xcassets */; };
 		0609E015280CF95A002AAC5E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609E014280CF95A002AAC5E /* Home.swift */; };
 		0609E017280D6BCF002AAC5E /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609E016280D6BCF002AAC5E /* LineGraph.swift */; };
+		06BF98A1280EB933005CBEB8 /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF98A0280EB933005CBEB8 /* CryptoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		0609E00B280CF69A002AAC5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0609E014280CF95A002AAC5E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0609E016280D6BCF002AAC5E /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
+		06BF98A0280EB933005CBEB8 /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		0609E012280CF92B002AAC5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06BF98A0280EB933005CBEB8 /* CryptoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				0609E007280CF696002AAC5E /* ContentView.swift in Sources */,
 				0609E015280CF95A002AAC5E /* Home.swift in Sources */,
 				0609E005280CF696002AAC5E /* CryptoApp.swift in Sources */,
+				06BF98A1280EB933005CBEB8 /* CryptoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LineGraph: View {
     
-    var data: [CGFloat]
+    var data: [Double]
     
     @State var currentPlot = ""
     // Offset...
