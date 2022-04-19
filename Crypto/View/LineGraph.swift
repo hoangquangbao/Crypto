@@ -36,7 +36,7 @@ struct LineGraph: View {
                 // Making to show from minimum Amount
                 // Khoảng không để hiển thị biểu đồ bây giờ nó đc gói gọn giữa giá trị min và max
                 let progress = (item.element - minPoint) / (maxPoint - minPoint)
-                let pathHeight = progress * (height - 50)
+                let pathHeight = progress * height
                 
                 // width...
                 let pathWidth = width * CGFloat(item.offset)
@@ -156,11 +156,19 @@ struct LineGraph: View {
                 
                 Text("$ \(Int(max))")
                     .font(.caption.bold())
+                    .offset(y: -25)
                 
                 Spacer()
                 
-                Text("$ \(Int(min))")
-                    .font(.caption.bold())
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(min.convertToCurrency())
+                        .font(.caption.bold())
+                    
+                    Text("Last 7 Days")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                .offset(y: 40)
             }
                 .frame(maxWidth: .infinity, alignment: .leading)
         )
