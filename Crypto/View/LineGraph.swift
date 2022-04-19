@@ -30,12 +30,12 @@ struct LineGraph: View {
                     
                     // width...
                     let pathWidth = width * CGFloat(item.offset)
-                
-//                    return CGPoint(x: pathWidth, y: pathHeight)
-
+                    
+                    //                    return CGPoint(x: pathWidth, y: pathHeight)
+                    
                     // Since we need peak to top not bottom...
                     // y = Giá trị càng lớn thì nó sẽ nằm phía dưới vì đó là cách hiển thị của màn hình
-                    // Nên tasẽ đảo ngược sơ đồ lại và + thêm height để dịch chuyển biểu đồ xún
+                    // Nên ta sẽ đảo ngược sơ đồ lại và + thêm height để dịch chuyển biểu đồ xún
                     return CGPoint(x: pathWidth, y: -pathHeight + height)
                 }
                 // Converting plot as points...
@@ -51,10 +51,40 @@ struct LineGraph: View {
                 .fill(
                     
                     // Gradient...
-                    LinearGradient(colors: [Color("Gradient1"), Color("Gradient2")], startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(colors: [
+                        Color("Gradient1"),
+                        Color("Gradient2")
+                    ], startPoint: .leading, endPoint: .trailing)
                 )
+                
+                // Path Background Coloring...
+                FillBG()
+                // Clipping the shape...
+                .clipShape(
+                    Path { path in
+                        
+                        // drawing the points...
+                        path.move(to: CGPoint(x: 0, y: 0))
+                        path.addLines(points)
+                        path.addLine(to: CGPoint(x: proxy.size.width, y: height))
+                        path.addLine(to: CGPoint(x: 0, y: height))
+                    }
+                )
+                .padding(.top,10)
             }
         }
         .padding(.horizontal, 10)
+    }
+    
+    @ViewBuilder
+    func FillBG() -> some View {
+        LinearGradient(colors: [
+            Color("Gradient2").opacity(0.3),
+            Color("Gradient2").opacity(0.2),
+            Color("Gradient2").opacity(0.1),
+        ]
+                       + Array(repeating: Color("Gradient1").opacity(0.1), count: 4)
+                       + Array(repeating: Color.clear, count: 2)
+                       , startPoint: .top, endPoint: .bottom)
     }
 }
