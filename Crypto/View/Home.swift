@@ -113,7 +113,7 @@ struct Home: View {
     @ViewBuilder
     func GraphView(coin: CryptoModel) -> some View {
         GeometryReader { _ in
-            LineGraph(data: coin.last7DaysPrice.price)
+            LineGraph(data: coin.last7DaysPrice.price, profit: coin.priceChange > 0)
         }
         .padding(.vertical, 30)
         .padding(.bottom, 20)

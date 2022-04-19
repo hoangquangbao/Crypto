@@ -10,6 +10,7 @@ import SwiftUI
 struct LineGraph: View {
     
     var data: [Double]
+    var profit: Bool = false
     
     @State var currentPlot = ""
     // Offset...
@@ -64,8 +65,8 @@ struct LineGraph: View {
                     
                     // Gradient...
                     LinearGradient(colors: [
-                        Color("Gradient1"),
-                        Color("Gradient2")
+                        profit ? Color("Profit") : Color("Loss"),
+                        profit ? Color("Profit") : Color("Loss")
                     ], startPoint: .leading, endPoint: .trailing)
                 )
                 
@@ -177,12 +178,14 @@ struct LineGraph: View {
     
     @ViewBuilder
     func FillBG() -> some View {
+        
+        let color = profit ? Color("Profit") : Color("Loss")
         LinearGradient(colors: [
-            Color("Gradient2").opacity(0.3),
-            Color("Gradient2").opacity(0.2),
-            Color("Gradient2").opacity(0.1),
+            color.opacity(0.3),
+            color.opacity(0.2),
+            color.opacity(0.1),
         ]
-                       + Array(repeating: Color("Gradient1").opacity(0.1), count: 4)
+                       + Array(repeating: color.opacity(0.1), count: 4)
                        + Array(repeating: Color.clear, count: 2)
                        , startPoint: .top, endPoint: .bottom)
     }
