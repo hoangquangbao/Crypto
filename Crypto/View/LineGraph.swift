@@ -10,6 +10,11 @@ import SwiftUI
 struct LineGraph: View {
     
     var data: [CGFloat]
+    
+    @State var currentPlot = ""
+    // Offset...
+    @State var offset: CGSize = .zero
+    
     var body: some View {
         
         GeometryReader { proxy in
@@ -72,6 +77,37 @@ struct LineGraph: View {
                 )
                 .padding(.top,10)
             }
+            .overlay(
+                
+                // Drag Indicator...
+                VStack(spacing: 0) {
+                    
+                    Text(currentPlot)
+                        .font(.caption.bold())
+                        .foregroundColor(.white)
+                        .padding(.vertical,6)
+                        .padding(.horizontal,10)
+                        .background(Color("Gradient1"),in: Capsule())
+                    
+                    Rectangle()
+                        .fill(Color("Gradient1"))
+                        .frame(width: 1, height: 40)
+                        .padding(.top)
+                    
+                    Circle()
+                        .fill(Color("Gradient1"))
+                        .frame(width: 22, height: 22)
+                        .overlay(
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 12, height: 12)
+                        )
+                    
+                    Rectangle()
+                        .fill(Color("Gradient1"))
+                        .frame(width: 1, height: 55)
+                }
+            )
         }
         .padding(.horizontal, 10)
     }
