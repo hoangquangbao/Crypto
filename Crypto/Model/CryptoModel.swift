@@ -16,9 +16,9 @@ struct CryptoModel: Identifiable, Codable {
     let name: String
     let image: String
     let currentPrice: Double
-    let lastUpdated: String?
+    let lastUpdated: String
     let last7DaysPrice: GraphModel
-    let priceChange: Double?
+    let priceChange: Double
 
     enum CodingKeys: String, CodingKey {
         case id

@@ -38,6 +38,26 @@ struct Home: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 CustomControl(coins: coins)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    
+                    Text(coin.currentPrice.convertToCurrency())
+                        .font(.largeTitle.bold())
+                    
+                    // Profit or Loss
+                    Text("\(coin.priceChange > 0 ? "+" : "")\(String(format: "%.2f", coin.priceChange))")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(coin.priceChange < 0 ? .white : .black)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background {
+                            Capsule()
+                                .fill(coin.priceChange < 0 ? .red : Color("LightGreen"))
+                        }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                
                 GraphView(coin: coin)
                 Control()
             } else {
@@ -135,5 +155,15 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+// MARK: Converting Double to Currency
+extension Double {
+    func convertToCurrency() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
+        return formatter.string(from: .init(value: self)) ?? ""
     }
 }
