@@ -24,5 +24,5 @@ Crypto App With Live JSON Data & Animated Line Graph Using SwiftUI 3.0
 - [app.quicktype.io](https://app.quicktype.io/) to use analyzing JSON file.
 - [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI) a SwiftUI image loading framework, which based on [SDWebImage](https://github.com/SDWebImage/SDWebImage).
 
-### 📌 Demo App
+### 📌 Mockups App
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/66858640/164157995-e66bca26-cf08-46f7-9322-c818e978a1ad.gif)
