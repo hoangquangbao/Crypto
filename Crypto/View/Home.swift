@@ -113,7 +113,7 @@ struct Home: View {
     @ViewBuilder
     func GraphView(coin: CryptoModel) -> some View {
         GeometryReader { _ in
-            LineGraph(data: coin.last7DaysPrice.price, profit: coin.priceChange > 0)
+            LineGraph(data: coin.last7DaysPrice.price, isProfit: coin.priceChange > 0)
         }
         .padding(.vertical, 30)
         .padding(.bottom, 20)
@@ -132,7 +132,7 @@ struct Home: View {
                     .fontWeight(.bold)
                     .padding(.vertical)
                     .frame(maxWidth: .infinity)
-                    .background(Color("LightGreen"), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .background(.white, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
             
             Button {
@@ -143,10 +143,11 @@ struct Home: View {
                     .fontWeight(.bold)
                     .padding(.vertical)
                     .frame(maxWidth: .infinity)
-                    .background {
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(.white)
-                    }
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+//                            .fill(Color("LightGreen"))
+//                    }
+                    .background(Color("LightGreen"), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
         }
     }
